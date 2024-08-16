@@ -1,0 +1,7 @@
+numpy>=1.19.2,<2.0.0
+tensorboard>=2.0.0,<3.0.0
+torch_geometric
+torch
+torchvision
+torchaudio
+open3d

@@ -1,0 +1,20 @@
+#python log file
+
+*.log
+
+*.pkl
+
+test_scene_generated.scn
+
+#ignore data folder
+data/*
+
+training_data/*
+
+venv/*
+
+vertexCount
+
+
+
+__pycache__/
