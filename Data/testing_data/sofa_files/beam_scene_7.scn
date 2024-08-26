@@ -1,0 +1,125 @@
+
+<?xml version="1.0"?>
+
+<Node name="root" dt="0.01" gravity="0 0 0">
+    <RequiredPlugin name="Sofa.Component.LinearSolver.Direct"/>             <!-- Needed to use components [BTDLinearSolver] -->
+    <RequiredPlugin name="Sofa.Component.Mapping.Linear"/>                  <!-- Needed to use components [BeamLinearMapping IdentityMapping] -->
+    <RequiredPlugin name="Sofa.Component.Mass"/>                            <!-- Needed to use components [UniformMass] -->
+    <RequiredPlugin name="Sofa.Component.ODESolver.Backward"/>              <!-- Needed to use components [EulerImplicitSolver] -->
+    <RequiredPlugin name="Sofa.Component.SolidMechanics.FEM.Elastic"/>      <!-- Needed to use components [BeamFEMForceField] -->
+    <RequiredPlugin name="Sofa.Component.StateContainer"/>                  <!-- Needed to use components [MechanicalObject] -->
+    <RequiredPlugin name="Sofa.Component.AnimationLoop"/>                   <!-- Needed to use components [FreeMotionAnimationLoop] -->
+    <RequiredPlugin name="Sofa.Component.Constraint.Projective"/>           <!-- Needed to use components [FixedConstraint] -->
+    <RequiredPlugin name="Sofa.Component.Constraint.Lagrangian.Correction"/><!-- Needed to use components [LinearSolverConstraintCorrection] -->
+    <RequiredPlugin name="Sofa.Component.Constraint.Lagrangian.Solver"/>    <!-- Needed to use components [GenericConstraintSolver] -->
+    <RequiredPlugin name="Sofa.Component.MechanicalLoad"/>                  <!-- Needed to use components [ConstantForceField] -->
+    <RequiredPlugin name="Sofa.Component.Topology.Container.Constant"/>     <!-- Needed to use components [MeshTopology] -->
+    <RequiredPlugin name="Sofa.Component.Visual"/>                          <!-- Needed to use components [VisualStyle] -->
+    
+    <DefaultAnimationLoop/>
+    <VisualStyle displayFlags="showBehaviorModels showForceFields showCollisionModels showVisual showInteractionForceFields" />
+
+    <Node name="beam">
+        <StaticSolver newton_iterations="10"/>
+        <BTDLinearSolver template="BTDMatrix6d" printLog="false" verbose="false" />
+        <MechanicalObject template="Rigid3" name="DOFs" 
+            position="
+
+0.00095 -0.12395 0.36975 0.99627 0.00128 0.01501 0.08501
+0.00167 -0.12799 0.34628 0.99917 0.00037 0.0093 0.03978
+0.00215 -0.13005 0.32041 0.99493 0.00224 0.02273 0.09795
+0.00336 -0.13518 0.29462 0.99185 0.00073 0.00567 0.12728
+0.00371 -0.143 0.26467 0.99353 0.00147 0.01291 0.11284
+0.00458 -0.15047 0.23218 0.98684 0.00262 0.0161 0.16087
+0.00572 -0.16162 0.19891 0.98652 0.00278 0.01687 0.16273
+0.00697 -0.17333 0.16435 0.99384 8e-05 0.0007 0.11087
+0.00702 -0.18074 0.13158 0.99752 0.00222 -0.03683 -0.06001
+0.0045 -0.17665 0.09776 0.99752 0.00222 -0.03683 -0.06001
+
+
+            "
+            showIndices="false" showIndicesScale="0"/>
+        <MeshTopology name="lines" lines="0 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9" />
+        <FixedConstraint name="FixedConstraint" indices="0" />
+        <UniformMass totalMass="0.18" printLog="false" showAxisSizeFactor="0.0" />
+        <BeamFEMForceField name="FEM" radius="0.01" radiusInner="0" youngModulus="2000000" poissonRatio="0.45"/>
+            
+        <ConstantForceField indices="9" totalForce="-0.0776191881925657 -0.055906244357592616 0.018031872921558015 0 0 0 1" showArrowSize="0.15"/>
+        <WriteState filename="beam_scene_7.log" WriteX="true"/>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader0" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_15.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual0" src="@ObjLoader0" />
+            <RigidMapping winput="@DOFs" output="@Visual0"  index="0"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_0" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader1" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_16.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual1" src="@ObjLoader1" />
+            <RigidMapping winput="@DOFs" output="@Visual1"  index="1"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_1" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader2" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_17.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual2" src="@ObjLoader2" />
+            <RigidMapping winput="@DOFs" output="@Visual2"  index="2"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_2" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader3" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_18.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual3" src="@ObjLoader3" />
+            <RigidMapping winput="@DOFs" output="@Visual3"  index="3"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_3" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader4" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_19.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual4" src="@ObjLoader4" />
+            <RigidMapping winput="@DOFs" output="@Visual4"  index="4"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_4" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader5" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_20.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual5" src="@ObjLoader5" />
+            <RigidMapping winput="@DOFs" output="@Visual5"  index="5"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_5" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader6" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_21.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual6" src="@ObjLoader6" />
+            <RigidMapping winput="@DOFs" output="@Visual6"  index="6"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_6" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader7" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_22.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual7" src="@ObjLoader7" />
+            <RigidMapping winput="@DOFs" output="@Visual7"  index="7"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_7" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader8" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_23.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual8" src="@ObjLoader8" />
+            <RigidMapping winput="@DOFs" output="@Visual8"  index="8"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_8" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+        <Node name="Visual_spine" gravity="0 0 0">
+            <MeshOBJLoader name="ObjLoader9" filename="/media/volume/Training_data/git_repo/Spinal_Registration/assets/3D_models/transformed_models_decimated/transformed_Segment_24.obj" scale3d="1 1 1" translation="0 0 0" rotation="0 0 0"/>
+            <OglModel name="Visual9" src="@ObjLoader9" />
+            <RigidMapping winput="@DOFs" output="@Visual9"  index="9"/>
+            <ObjExporter filename="obj/beam_scene_7_simulated_segment_9" edges="0" triangles="1" tetras="0" listening="true" exportAtEnd="true"/>
+        </Node>
+
+
+        
+
+
+    </Node>
+</Node>

@@ -264,7 +264,7 @@ if __name__ == "__main__":
     simNumb = 400
 
     # the directory to save the data
-    dir = r"/media/volume/Training_data/experiments/experiment_111/testing_data"
+    dir = r"Data/testing_data"
 
 
 

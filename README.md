@@ -44,9 +44,12 @@ I tried directly training on the mesh using graph neural network but i didnt suc
 # Results:
 
 ## Visual result
-![simulations](assets/images/gif_sim.gif)
+![simulations](assets/images/simulation.gif)
 On this animation we can see in green the spine simulated with the ground truth force.
 The red one is the same spine but simulated using the predicted force.
 As you can see the end result is visualy quite close.
 
 ## Numeric results
+
+Validation Loss avg: 0.0072
+Validation Loss Standard Deviation: 0.0118
