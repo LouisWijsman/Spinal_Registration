@@ -1,10 +1,6 @@
 # Physics-based Deep Learning for Spine CT Registration
 This repo presents the main results of my research internship at the Surgical Planning Lab.
 
-<p align="center">
-<img src="assets/images/simulation.gif" width=50%>
-</p>
-
 # Usage
 In order to use the content of this repo you must install the required dependencies.
 - You can install SOFA from: [https://www.sofa-framework.org/download/](https://www.sofa-framework.org/download/)
