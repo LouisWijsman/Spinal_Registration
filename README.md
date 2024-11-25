@@ -1,6 +1,10 @@
 # Physics-based Deep Learning for Spine CT Registration
 This repo presents the main results of my research internship at the Surgical Planning Lab.
 
+<p align="center">
+<img src="assets/images/simulation.gif" width=50%>
+</p>
+
 # Usage
 In order to use the content of this repo you must install the required dependencies.
 - You can install SOFA from: [https://www.sofa-framework.org/download/](https://www.sofa-framework.org/download/)
@@ -36,8 +40,10 @@ I tried directly training on the mesh using GNN but the results were not satisfy
 # Results:
 
 ## Visual result
-![simulations](assets/images/simulation.gif)
+<p align="center">
 <img src="assets/images/simulation.gif" width=50%>
+</p>
+
 On this animation we can see in green the spine simulated with the ground truth force.
 The red one is the same spine but simulated using the predicted force.
 As you can see the end result is visualy quite close.
