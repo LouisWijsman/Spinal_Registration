@@ -1,5 +1,5 @@
 # Spinal_Registration
-This repo presents the main results of my research work at the brigham womens hospital as a trainee under the supervision of Nazim Haouchine.
+This repo presents the main results of my research work at the Surgical Planning Lab.
 
 # Usage
 In order to use the content of this repo you must install the required dependencies.
