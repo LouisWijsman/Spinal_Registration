@@ -1,4 +1,4 @@
-# Spinal_Registration
+# Physics-based Deep Learning for Spine CT Registration
 This repo presents the main results of my research work at the Surgical Planning Lab.
 
 # Usage
